@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-from collections import defaultdict
-
+import sys
 import json
 import time
+
+from collections import defaultdict
 
 import reddit
 
@@ -13,7 +14,7 @@ file_numbering = 0
 
 def save_as_json(dic, name, number):
     filename = file_template.format(name, number)
-    data = json.dumps(dic, sort_keys=True, indent=2)
+    data = json.dumps(dic, sort_keys=True)
     with open(filename, 'w') as f:
         f.write(data)
 
@@ -21,21 +22,24 @@ def app():
     global file_numbering
     r = reddit.Reddit(user_agent='karmelzebra')
 
-    while file_numbering < 500:
+    while file_numbering < 1000:
         print "Requesting batch nr {0}".format(file_numbering)
         try:
-            names = defaultdict(list)
-            reddits = defaultdict(list)
+            batch = defaultdict(list)
             comments = r.get_all_comments(limit=config['limit'], place_holder=None)
 
             comment_count = 0
             for comment in comments:
-                names[str(comment.author)].append(str(comment.subreddit))
-                reddits[str(comment.subreddit)].append(str(comment.author))
+                print '.',
+                sys.stdout.flush()
+                comment_id = comment.id
+                author = str(comment.author)
+                subreddit = str(comment.subreddit)
+                batch[comment_id] = [comment_id, author, subreddit]
                 comment_count += 1
+            print
 
-            save_as_json(names, 'names', file_numbering)
-            save_as_json(reddits, 'reddits', file_numbering)
+            save_as_json(batch, 'batch_26012012_0', file_numbering)
             print "Batch nr {0} saved, {1} new records.".format(file_numbering, comment_count)
         except KeyboardInterrupt:
             raise
