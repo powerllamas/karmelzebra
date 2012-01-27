@@ -22,4 +22,4 @@ if __name__ == '__main__':
     try:
         app()
     except KeyboardInterrupt:
-        print "\nJoining batches stopped by user. Bye!"
+        print "\nConversion to csv stopped by user. Bye!"

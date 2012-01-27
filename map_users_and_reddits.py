@@ -35,4 +35,4 @@ if __name__ == '__main__':
     try:
         app()
     except KeyboardInterrupt:
-        print "\nJoining batches stopped by user. Bye!"
+        print "\nMapping users and reddits stopped by user. Bye!"
