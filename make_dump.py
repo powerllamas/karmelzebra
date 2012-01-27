@@ -7,10 +7,9 @@ from collections import defaultdict
 
 import reddit
 
-config = {'sleep_time': 30, 'limit': 500}
+config = {'sleep_time': 30, 'limit': 500, 'nr_of_batches': 1000}
 
 file_template = 'dump/{0}_{1}.json'
-file_numbering = 0
 
 def save_as_json(dic, name, number):
     filename = file_template.format(name, number)
@@ -19,10 +18,10 @@ def save_as_json(dic, name, number):
         f.write(data)
 
 def app():
-    global file_numbering
+    file_numbering = 0
     r = reddit.Reddit(user_agent='karmelzebra')
 
-    while file_numbering < 1000:
+    while file_numbering < config['nr_of_batches']:
         print "Requesting batch nr {0}".format(file_numbering)
         try:
             batch = defaultdict(list)
