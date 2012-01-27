@@ -1,0 +1,4 @@
+Correct order of invoking scripts:
+- make_dump.py
+- join_batches.py
+- map_users_and_reddits.py
