@@ -2,3 +2,6 @@ Correct order of invoking scripts:
 - make_dump.py
 - join_batches.py
 - map_users_and_reddits.py
+- find_reddits_connection.py
+- number_all_reddits.py
+- make_pajek_net.py
