@@ -1,0 +1,17 @@
+NETBEGIN 1
+CLUBEGIN 1
+PERBEGIN 1
+CLSBEGIN 1
+HIEBEGIN 1
+VECBEGIN 1
+
+Msg Reading Network   ---    D:\studia\informatyka\semestr9\tsis\repo\data\pajek\reddit.net
+N 1 RDN "D:\studia\informatyka\semestr9\tsis\repo\data\pajek\reddit.net" (4401)
+Msg Reducing - according to degree
+N 2 DEGRED 1 [2,2,0,1] (3156)
+Msg Removing lines
+N 3 REMLINL 2 4.0000 (3156)
+Msg All degree centrality of 3. Removed lines with values lower than 4.0000 in N2 (3156)
+C 2 DEGC 3 [2] (3156)
+C 2 INFOCLU1 2 3 0 1 1 (3156)
+Msg 2. All Degree partition of N3 (3156)
