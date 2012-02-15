@@ -1,0 +1,17 @@
+**Analiza społeczności serwisu Reddit
+
+Serwis Reddit jest jednym z największych obecnie serwisów społecznościowych. Składa się on z wielu tzw. subredditów, na których użytkownicy mogą umieszczać linki oraz komentować ich zawartość, zmieniać ich pozycję w rankingu za pomoca głosowania, a także tworzyć własne tematyczne subreddity. Według ostatnich dostępnych danych liczba użytkowników serwisu wynosi osiem milionów [http://blog.reddit.com/2010/07/your-gold-dollars-at-work.html], natomiast liczba subredditów 67 tysięcy [http://en.wikipedia.org/wiki/Reddit].
+
+[reddit_web.png]
+
+Postanowiliśmy przyjrzeć się strukturze serwisu i odszukać ciekawe zależności. Pierwszym problemem było zebranie danych. 
+
+*Stworzenie modelu sieci
+
+Serwis Reddit udostępnia poprzez API informacje o komentarzach, nowych wpisach, subredditach i użytkownikach. Niestety, w przypadku tych ostatnich należy znać wcześniej identyfikator subreddita lub uzytkownika. Jest to problematyczne, bo trudno dobrać metodę znalezienia użytkowników i subredditów tak, by zebrane dane były reprezentatywne. Pojawiają się też pytania jak bardzo zagłębiać się w historię wpisów i komentarzy dodawanych przez użytkownika, a także ile dokładnie róznych subredditów i użytkowników analizować. Jeśli zacząć przeszukiwanie od pewnego ziarna, prawdopodobnie nie uda nam się stworzyć dobrej reprezentacji zależności między subredditami, bo niektóre z nich mogą być nieosiągalne z obranego punktu wyjścia. Z tego powodu postanowiliśmy wykorzystać metodę w API, pozwalającą na pobranie ostatnio dodanych komentarzy. Stwierdziliśmy, że zebranie danych o komentarzach i przypisanie ich do danych redditów da nam dobre pojęcie o ich aktywności w czasie w którym dane zostały zebrane. Jeżeli dany użytkownik komentował na różnych subredditach, traktowaliśmy to jako powiązanie między tymi subredditami - reprezentująca je krawędź grafu miała tym większą wagę, im więcej użytkowników spełniało tę zależność. Ze względu na ograniczenia w ilości komentarzy, które można było pobrać za jednym razem, oraz ograniczeniem na ilość zapytań w danym czasie postanowiliśmy zbierać dane na żywo. W rezultacie zebraliśmy 356 tysięcy unikalnych komentarzy w ciągu osiemnastu godzin, przypadających na 4401 subredditów.
+
+Okazało się, że przeważająca większość subredditów otrzymała zaledwie jeden lub dwa komentarze, co ilustruje poniższy histogram (nie uwzględnia on pojedynczych subredditów, które miały nawet kilkanaście tysięcy komentarzy).
+
+[hist.png]
+
+Ponieważ duża liczba zebranych danych utrudniała ich analizę i wizualizację, postanowiliśmy usunąć ze zbioru danych te subreddity, które otrzymały poniżej 30 komentarzy i zająć się tylko "dużymi graczami". Link do sieci w formacie programu "Pajek" zarówno sprzed jak i po redukcji znajduje się na końcu artykułu.
