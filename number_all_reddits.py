@@ -4,7 +4,7 @@ import json
 
 from collections import defaultdict
 
-config = {'infile': 'comments.json', 'outfile': 'reddits.csv'}
+config = {'infile': 'comments.json', 'outfile': 'reddits.csv', 'threshold': 30}
 
 def app():
     strengths = defaultdict(int)
@@ -18,6 +18,8 @@ def app():
         reddit_name = comment[2]
         reddits.add(reddit_name)
         strengths[reddit_name] += 1
+
+    reddits = filter(lambda name: strengths[name] > config['threshold'], reddits)
 
     print "Writing: {0}".format(config['outfile'])
     with open(config['outfile'], 'w') as outfile:
