@@ -15,3 +15,30 @@ Okazało się, że przeważająca większość subredditów otrzymała zaledwie 
 [hist.png]
 
 Ponieważ duża liczba zebranych danych utrudniała ich analizę i wizualizację, postanowiliśmy usunąć ze zbioru danych te subreddity, które otrzymały poniżej 30 komentarzy i zająć się tylko "dużymi graczami". Link do sieci w formacie programu "Pajek" zarówno sprzed jak i po redukcji znajduje się na końcu artykułu.
+
+*Najpopularniejsze subreddity
+
+Według zebranych przez nas danych lista najpopularniejszych subredditów przezentuje się następująco (w nawiasach liczba komentarzy):
+
+- AskReddit (41 120)
+- funny (20 731)
+- pics (16 899)
+- politics (12 532)
+- atheism (12 425)
+- WTF (11 183)
+- trees (8 961)
+- gaming (8 739)
+- fffffffuuuuuuuuuuuu (7 160)
+- IAmA (6 817)
+- AdviceAnimals (6 230)
+- videos (4 414)
+- leagueoflegends (4 143)
+- mylittlepony (3 525)
+- todayilearned (3 264)
+- worldnews (3 216)
+- gonewild (3 078)
+- TwoXChromosomes (3 001)
+- starcraft (2 580)
+- aww (2 553)
+
+Ranking ten zawiera 13 z 20 subredditów będących domyślnie dodawanych do subskrypcji [http://blog.reddit.com/2011/10/saying-goodbye-to-old-friend-and.html] dla nowych lub niezalogowanych użytkowników.
