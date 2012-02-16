@@ -2,7 +2,7 @@
 import csv
 
 config = {'infile_connections': 'reddits_connections.csv', 'infile_reddits': 'reddits.csv',
-        'outfile_net': 'reddit.reduced.net', 'outfile_vector': 'reddit.reduced.vec'}
+        'outfile_net': 'reddit.reduced.net', 'outfile_vector': 'reddit.reduced.vec', 'threshold': 30}
 
 def app():
     reddits = []
@@ -30,6 +30,8 @@ def app():
             if not first in reddits_map:
                 continue
             if not second in reddits_map:
+                continue
+            if int(strength) < config['threshold']:
                 continue
             first_idx = reddits_map[first]
             second_idx = reddits_map[second]

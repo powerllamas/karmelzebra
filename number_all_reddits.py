@@ -4,7 +4,7 @@ import json
 
 from collections import defaultdict
 
-config = {'infile': 'comments.json', 'outfile': 'reddits.csv', 'threshold': 30}
+config = {'infile': 'comments.json', 'infile_conn': 'reddits_connections.csv', 'outfile': 'reddits.csv', 'threshold': 100, 'threshold_conn': 30}
 
 def app():
     strengths = defaultdict(int)
@@ -20,6 +20,19 @@ def app():
         strengths[reddit_name] += 1
 
     reddits = filter(lambda name: strengths[name] > config['threshold'], reddits)
+
+    conn_widths = defaultdict(int)
+    print "Loading: {0}".format(config['infile_conn'])
+    with open(config['infile_conn']) as infile:
+        for line in infile.readlines():
+            reddit1, reddit2, width = line.split(',')
+            if int(width) < config['threshold_conn']:
+                continue
+            if reddit1 in reddits and reddit2 in reddits:
+                conn_widths[reddit1] += int(width)
+                conn_widths[reddit2] += int(width)
+
+    reddits = filter(lambda name: conn_widths[name] > 0, reddits)
 
     print "Writing: {0}".format(config['outfile'])
     with open(config['outfile'], 'w') as outfile:

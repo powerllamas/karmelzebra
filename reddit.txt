@@ -1,6 +1,6 @@
 **Analiza społeczności serwisu Reddit
 
-Serwis Reddit jest jednym z największych obecnie serwisów społecznościowych. Składa się on z wielu tzw. subredditów, na których użytkownicy mogą umieszczać linki oraz komentować ich zawartość, zmieniać ich pozycję w rankingu za pomoca głosowania, a także tworzyć własne tematyczne subreddity. Według ostatnich dostępnych danych liczba użytkowników serwisu wynosi osiem milionów [http://blog.reddit.com/2010/07/your-gold-dollars-at-work.html], natomiast liczba subredditów 67 tysięcy [http://en.wikipedia.org/wiki/Reddit].
+Serwis Reddit jest jednym z największych obecnie serwisów społecznościowych. Składa się on z wielu tzw. subredditów, na których użytkownicy mogą umieszczać linki oraz komentować ich zawartość, zmieniać ich pozycję w rankingu za pomoca głosowania, a także tworzyć własne tematyczne subreddity. Lepiej wytłumaczy to jednak ta infografika [http://imgur.com/znnRc]. Według ostatnich dostępnych danych liczba użytkowników serwisu wynosi osiem milionów [http://blog.reddit.com/2010/07/your-gold-dollars-at-work.html], natomiast liczba subredditów 67 tysięcy [http://en.wikipedia.org/wiki/Reddit].
 
 [reddit_web.png]
 
